@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnHub - Learning Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header Navigation -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>LearnHub</h1>
+                </div>
+                <nav class="nav-menu">
+                    <button class="nav-btn" data-view="dashboard">Dashboard</button>
+                    <button class="nav-btn" data-view="courses">Courses</button>
+                    <button class="nav-btn" data-view="assessments">Assessments</button>
+                    <button class="nav-btn" data-view="discussions">Discussions</button>
+                    <button class="nav-btn" data-view="analytics">Analytics</button>
+                </nav>
+                <div class="user-profile">
+                    <div class="user-info">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="User Avatar" class="user-avatar">
+                        <span class="user-name">Jordan Smith</span>
+                    </div>
+                    <button class="btn btn--secondary btn--sm" data-view="profile">Profile</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Dashboard View -->
+            <div class="view" id="dashboard-view">
+                <div class="container">
+                    <div class="dashboard-header">
+                        <h2>Welcome back, Jordan!</h2>
+                        <p class="dashboard-subtitle">Continue your learning journey</p>
+                    </div>
+                    
+                    <div class="dashboard-grid">
+                        <!-- Stats Cards -->
+                        <div class="stats-row">
+                            <div class="stat-card">
+                                <div class="stat-icon">📚</div>
+                                <div class="stat-info">
+                                    <h3>3</h3>
+                                    <p>Courses in Progress</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">🎯</div>
+                                <div class="stat-info">
+                                    <h3>2,450</h3>
+                                    <p>Total Points</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">🔥</div>
+                                <div class="stat-info">
+                                    <h3>12</h3>
+                                    <p>Day Streak</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">🏆</div>
+                                <div class="stat-info">
+                                    <h3>3</h3>
+                                    <p>Badges Earned</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Courses -->
+                        <div class="dashboard-section">
+                            <h3>Continue Learning</h3>
+                            <div class="course-progress-list" id="recent-courses">
+                                <!-- Populated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- Achievements -->
+                        <div class="dashboard-section">
+                            <h3>Recent Achievements</h3>
+                            <div class="achievements-list" id="recent-achievements">
+                                <!-- Populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Catalog View -->
+            <div class="view hidden" id="courses-view">
+                <div class="container">
+                    <div class="view-header">
+                        <h2>Course Catalog</h2>
+                        <div class="search-filters">
+                            <input type="text" class="form-control search-input" placeholder="Search courses..." id="course-search">
+                            <select class="form-control filter-select" id="category-filter">
+                                <option value="">All Categories</option>
+                                <option value="Programming">Programming</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Data Science">Data Science</option>
+                                <option value="Design">Design</option>
+                                <option value="Business">Business</option>
+                            </select>
+                            <select class="form-control filter-select" id="level-filter">
+                                <option value="">All Levels</option>
+                                <option value="Beginner">Beginner</option>
+                                <option value="Intermediate">Intermediate</option>
+                                <option value="Advanced">Advanced</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="courses-grid" id="courses-grid">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Detail View -->
+            <div class="view hidden" id="course-detail-view">
+                <div class="container">
+                    <div id="course-detail-content">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Interface View -->
+            <div class="view hidden" id="learning-view">
+                <div class="container">
+                    <div class="learning-interface">
+                        <div class="learning-header">
+                            <button class="btn btn--outline btn--sm" id="back-to-course">← Back to Course</button>
+                            <div class="learning-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="progress-text">Module 1 of 12</span>
+                            </div>
+                        </div>
+                        
+                        <div class="learning-content">
+                            <div class="content-area">
+                                <h2 id="module-title">Getting Started with JavaScript</h2>
+                                <div class="content-body">
+                                    <p>Welcome to the JavaScript fundamentals course! In this module, you'll learn the basics of JavaScript programming.</p>
+                                    <h3>What You'll Learn:</h3>
+                                    <ul>
+                                        <li>Variables and data types</li>
+                                        <li>Functions and scope</li>
+                                        <li>Control structures</li>
+                                        <li>DOM manipulation</li>
+                                    </ul>
+                                    <div class="video-placeholder">
+                                        <div class="video-mock">
+                                            <div class="play-button">▶️</div>
+                                            <p>Video: Introduction to JavaScript (15:30)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="learning-sidebar">
+                                <div class="module-list">
+                                    <h4>Course Modules</h4>
+                                    <div class="modules" id="course-modules">
+                                        <!-- Populated by JavaScript -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="learning-controls">
+                            <button class="btn btn--outline" id="prev-module">Previous</button>
+                            <button class="btn btn--primary" id="next-module">Next Module</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Assessment Center View -->
+            <div class="view hidden" id="assessments-view">
+                <div class="container">
+                    <div class="view-header">
+                        <h2>Assessment Center</h2>
+                        <p>Test your knowledge with interactive quizzes</p>
+                    </div>
+                    <div class="assessments-grid" id="assessments-grid">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Taking View -->
+            <div class="view hidden" id="quiz-view">
+                <div class="container">
+                    <div class="quiz-interface">
+                        <div class="quiz-header">
+                            <h2 id="quiz-title">JavaScript Fundamentals Quiz</h2>
+                            <div class="quiz-progress">
+                                <span id="question-counter">Question 1 of 3</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="quiz-progress-bar" style="width: 33%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-content">
+                            <div class="question-container">
+                                <h3 id="question-text"></h3>
+                                <div class="options-container" id="quiz-options">
+                                    <!-- Populated by JavaScript -->
+                                </div>
+                            </div>
+                            
+                            <div class="quiz-controls">
+                                <button class="btn btn--outline" id="prev-question">Previous</button>
+                                <button class="btn btn--primary" id="next-question">Next Question</button>
+                                <button class="btn btn--primary hidden" id="submit-quiz">Submit Quiz</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Results View -->
+            <div class="view hidden" id="quiz-results-view">
+                <div class="container">
+                    <div class="quiz-results">
+                        <div class="results-header">
+                            <h2>Quiz Complete!</h2>
+                            <div class="score-circle">
+                                <div class="score-text">
+                                    <span id="final-score">0</span>
+                                    <span class="score-total">/ 3</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="results-content">
+                            <div class="performance-stats">
+                                <div class="stat-item">
+                                    <span class="stat-label">Correct Answers</span>
+                                    <span class="stat-value" id="correct-count">0</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Accuracy</span>
+                                    <span class="stat-value" id="accuracy-percentage">0%</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Points Earned</span>
+                                    <span class="stat-value" id="points-earned">0</span>
+                                </div>
+                            </div>
+                            
+                            <div class="results-actions">
+                                <button class="btn btn--primary" id="retake-quiz">Retake Quiz</button>
+                                <button class="btn btn--outline" data-view="assessments">Back to Assessments</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Dashboard View -->
+            <div class="view hidden" id="analytics-view">
+                <div class="container">
+                    <div class="view-header">
+                        <h2>Learning Analytics</h2>
+                        <p>Track your progress and insights</p>
+                    </div>
+                    
+                    <div class="analytics-grid">
+                        <div class="analytics-card">
+                            <h3>Learning Statistics</h3>
+                            <div class="stats-list">
+                                <div class="stat-row">
+                                    <span>Total Time Spent</span>
+                                    <span class="stat-value">87 hours</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Average Session</span>
+                                    <span class="stat-value">45 minutes</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Completion Rate</span>
+                                    <span class="stat-value">78%</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Weekly Goal</span>
+                                    <span class="stat-value">3/5 hours</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="analytics-card">
+                            <h3>Course Progress</h3>
+                            <div class="progress-list" id="course-progress-analytics">
+                                <!-- Populated by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div class="analytics-card">
+                            <h3>Achievement Progress</h3>
+                            <div class="achievement-progress">
+                                <div class="achievement-item">
+                                    <span class="achievement-name">🎓 Course Completions</span>
+                                    <div class="achievement-bar">
+                                        <div class="achievement-fill" style="width: 60%"></div>
+                                    </div>
+                                    <span class="achievement-count">3/5</span>
+                                </div>
+                                <div class="achievement-item">
+                                    <span class="achievement-name">💬 Discussion Posts</span>
+                                    <div class="achievement-bar">
+                                        <div class="achievement-fill" style="width: 84%"></div>
+                                    </div>
+                                    <span class="achievement-count">42/50</span>
+                                </div>
+                                <div class="achievement-item">
+                                    <span class="achievement-name">⚡ Learning Streak</span>
+                                    <div class="achievement-bar">
+                                        <div class="achievement-fill" style="width: 48%"></div>
+                                    </div>
+                                    <span class="achievement-count">12/25</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Discussion Forum View -->
+            <div class="view hidden" id="discussions-view">
+                <div class="container">
+                    <div class="view-header">
+                        <h2>Discussion Forum</h2>
+                        <button class="btn btn--primary" id="new-discussion">New Discussion</button>
+                    </div>
+                    <div class="discussions-list" id="discussions-list">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Settings View -->
+            <div class="view hidden" id="profile-view">
+                <div class="container">
+                    <div class="profile-header">
+                        <h2>Profile Settings</h2>
+                    </div>
+                    
+                    <div class="profile-content">
+                        <div class="profile-section">
+                            <h3>Personal Information</h3>
+                            <div class="profile-form">
+                                <div class="form-group">
+                                    <label class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" value="Jordan Smith" id="profile-name">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" value="jordan.smith@email.com" id="profile-email">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Learning Goal</label>
+                                    <select class="form-control" id="learning-goal">
+                                        <option value="casual">Casual Learning (2-3 hours/week)</option>
+                                        <option value="regular" selected>Regular Learning (5-7 hours/week)</option>
+                                        <option value="intensive">Intensive Learning (10+ hours/week)</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn--primary">Save Changes</button>
+                            </div>
+                        </div>
+                        
+                        <div class="profile-section">
+                            <h3>Learning Statistics</h3>
+                            <div class="profile-stats">
+                                <div class="profile-stat">
+                                    <span class="stat-label">Member Since</span>
+                                    <span class="stat-value">January 2024</span>
+                                </div>
+                                <div class="profile-stat">
+                                    <span class="stat-label">Total Points</span>
+                                    <span class="stat-value">2,450</span>
+                                </div>
+                                <div class="profile-stat">
+                                    <span class="stat-label">Courses Completed</span>
+                                    <span class="stat-value">3</span>
+                                </div>
+                                <div class="profile-stat">
+                                    <span class="stat-label">Learning Level</span>
+                                    <span class="stat-value">Advanced Learner</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="profile-section">
+                            <h3>Earned Badges</h3>
+                            <div class="badges-grid">
+                                <div class="badge-item">
+                                    <div class="badge-icon">🏆</div>
+                                    <div class="badge-info">
+                                        <h4>JavaScript Master</h4>
+                                        <p>Completed JavaScript course</p>
+                                    </div>
+                                </div>
+                                <div class="badge-item">
+                                    <div class="badge-icon">⚡</div>
+                                    <div class="badge-info">
+                                        <h4>Quick Learner</h4>
+                                        <p>Completed 3 modules in one day</p>
+                                    </div>
+                                </div>
+                                <div class="badge-item">
+                                    <div class="badge-icon">💬</div>
+                                    <div class="badge-info">
+                                        <h4>Discussion Leader</h4>
+                                        <p>Active in community discussions</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
